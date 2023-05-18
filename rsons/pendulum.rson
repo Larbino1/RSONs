@@ -1,0 +1,73 @@
+{
+  "name": "pendulum",
+  "blue": {
+    "color": [0, 0, 0.2, 1]
+  },
+  "frames": [
+    "root_frame",
+    "L1_frame",
+    "EE_frame"
+  ],
+  "joints": [
+    {
+      "name": "J1",
+      "type": "revolute",
+      "parent": "root_frame",
+      "child": "L1_frame",
+      "axis": [0, 1, 0]
+    },
+    {
+      "name": "ee_joint",
+      "type": "rigid",
+      "parent": "L1_frame",
+      "child": "EE_frame",
+      "origin": [0, 0, 1]
+    }
+  ],
+  "visuals": [
+    {
+      "name": "base_box",
+      "type": "box",
+      "frame": {
+        "parent": "root_frame",
+        "origin": [0, 0, -0.1]
+      },
+      "size": [0.2, 0.2, 0.2],
+      "material": {
+        "color": [0, 0, 0.2, 1]
+      }
+    },
+    {
+      "name": "l1_cyclinder",
+      "type": "cylinder",
+      "frame": {
+        "parent": "L1_frame",
+        "origin": [0, 0, 0.5]
+      },
+      "length": 1,
+      "radius": 0.075,
+      "material": {
+        "color": [0, 0, 0.2, 1]
+      }
+    }
+  ],
+  "collisions": null,
+  "inertances": [
+    {
+      "name": "i1",
+      "type": "mass",
+      "frame": "EE_frame",
+      "mass": 1.0
+    }
+  ],
+  "storages": [
+    {
+      "name": "s1",
+      "type": "linear_spring",
+      "parent": "EE_frame",
+      "child": "root_frame",
+      "stiffness": [[100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0]]
+    }
+  ],
+  "dissipations": null
+}
