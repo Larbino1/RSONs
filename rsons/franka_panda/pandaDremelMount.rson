@@ -1,6 +1,14 @@
 {
   "name": "panda",
   "frames": [
+    "root_frame",
+    "L1_frame",
+    "L2_frame",
+    "L3_frame",
+    "L4_frame",
+    "L5_frame",
+    "L6_frame",
+    "L7_frame",
     "i1_frame",
     "i2_frame",
     "i3_frame",
@@ -9,8 +17,84 @@
     "i6_frame",
     "i7_frame",
     "i8_frame",
+    "EE_frame",
+	"burr_frame"
   ],
   "joints": [
+    {
+      "name": "J1",
+      "type": "revolute",
+      "parent": "root_frame",
+      "child": "L1_frame",
+      "origin": [0, 0, 0.333],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J2",
+      "type": "revolute",
+      "parent": "L1_frame",
+      "child": "L2_frame",
+      "rotation": [-1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J3",
+      "type": "revolute",
+      "parent": "L2_frame",
+      "child": "L3_frame",
+      "origin": [0, -0.316, 0],
+      "rotation": [1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J4",
+      "type": "revolute",
+      "parent": "L3_frame",
+      "child": "L4_frame",
+      "origin": [0.0825, 0, 0],
+      "rotation": [1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J5",
+      "type": "revolute",
+      "parent": "L4_frame",
+      "child": "L5_frame",
+      "origin": [-0.0825, 0.384, 0],
+      "rotation": [-1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J6",
+      "type": "revolute",
+      "parent": "L5_frame",
+      "child": "L6_frame",
+      "rotation": [1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "J7",
+      "type": "revolute",
+      "parent": "L6_frame",
+      "child": "L7_frame",
+      "origin": [0.088, 0, 0],
+      "rotation": [1.57079632679, 0, 0],
+      "axis": [0, 0, 1]
+    },
+    {
+      "name": "EE_joint",
+      "type": "rigid",
+      "origin": [0, 0, 0.107],
+      "parent": "L7_frame",
+      "child": "EE_frame"
+    },
+	{
+      "name": "burr_joint",
+      "type": "rigid",
+      "origin": [0.174155, 0, 0.042],
+      "parent": "EE_frame",
+      "child": "burr_frame"
+    },
     {
       "name": "i1_joint",
       "type": "rigid",
@@ -68,6 +152,81 @@
       "child": "i8_frame"
     }
   ],
+  "materials": {
+    "panda_white": [1.0, 1.0, 1.0, 1.0],
+    "PLA_black": [0.0, 0.0, 0.0, 1.0]
+  },
+  "visuals": [
+      {
+      "name": "L0_mesh",
+      "type": "mesh",
+      "frame": "root_frame",
+      "filename": "./meshes/visual/link0.obj",
+      "material": "panda_white"
+    },
+
+    {
+      "name": "L1_mesh",
+      "type": "mesh",
+      "frame": "L1_frame",
+      "filename": "./meshes/visual/link1.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L2_mesh",
+      "type": "mesh",
+      "frame": "L2_frame",
+      "filename": "./meshes/visual/link2.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L3_mesh",
+      "type": "mesh",
+      "frame": "L3_frame",
+      "filename": "./meshes/visual/link3.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L4_mesh",
+      "type": "mesh",
+      "frame": "L4_frame",
+      "filename": "./meshes/visual/link4.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L5_mesh",
+      "type": "mesh",
+      "frame": "L5_frame",
+      "filename": "./meshes/visual/link5.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L6_mesh",
+      "type": "mesh",
+      "frame": "L6_frame",
+      "filename": "./meshes/visual/link6.obj",
+      "material": "panda_white"
+    },
+    {
+      "name": "L7_mesh",
+      "type": "mesh",
+      "frame": "L7_frame",
+      "filename": "./meshes/visual/link7.obj",
+      "material": "panda_white"
+    },    
+    {
+      "name": "InstrumentClamp",
+      "type": "mesh",
+      "frame": {
+        "parent": "EE_frame",
+        "origin": [0.042, 0, 0.042],
+        "rotation": [0, 0, -1.570796]
+      },
+      "filename": "./meshes/visual/dremelclamp.obj",
+      "material": "PLA_black"
+    }
+  ],
+  "collisions": null,
   "inertances": [
     {
       "name": "m1",
@@ -166,7 +325,9 @@
       "inertia": [1.0e-02, 1.0e-02, 1.0e-02,0.0, 0.0, 0.0]
     }
 
-  ]
+  ],
+  "storages": null,
+  "dissipations": null
 }
 
 

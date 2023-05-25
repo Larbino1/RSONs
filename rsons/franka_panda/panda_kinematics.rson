@@ -9,14 +9,6 @@
     "L5_frame",
     "L6_frame",
     "L7_frame",
-    "i1_frame",
-    "i2_frame",
-    "i3_frame",
-    "i4_frame",
-    "i5_frame",
-    "i6_frame",
-    "i7_frame",
-    "i8_frame",
     "EE_frame"
   ],
   "joints": [
