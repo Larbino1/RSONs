@@ -115,14 +115,5 @@
       "child": "root_frame",
       "stiffness": [[100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0]]
     }
-  ],
-  "dissipations": [
-    {
-      "name": "d1",
-      "type": "linear_damper",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "damping_coefficient": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
-    }
   ]
 }

@@ -324,7 +324,6 @@
       "frame": "i8_frame",
       "inertia": [1.0e-02, 1.0e-02, 1.0e-02,0.0, 0.0, 0.0]
     }
-
   ],
   "storages": null,
   "dissipations": null
