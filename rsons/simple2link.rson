@@ -1,8 +1,5 @@
 {
   "name": "robot2L",
-  "blue": {
-    "color": [0, 0, 0.2, 1]
-  },
   "frames": [
     "root_frame",
     "L1_frame",
@@ -34,7 +31,8 @@
     }
   ],
   "materials": {
-    "blue": [0.0, 0.0, 0.2, 1.0]
+    "white": [0.9, 0.9, 0.9, 1.0],
+    "grey": [0.8, 0.8, 0.8, 1.0]
   },
   "visuals": [
     {
@@ -45,7 +43,7 @@
         "origin": [0, 0, -0.1]
       },
       "size": [0.2, 0.2, 0.2],
-      "material": "blue"
+      "material": "grey"
     },
     {
       "name": "l1_cyclinder",
@@ -56,7 +54,7 @@
       },
       "length": 1,
       "radius": 0.075,
-      "material": "blue"
+      "material": "white"
     },
     {
       "name": "l2_cylinder",
@@ -67,7 +65,7 @@
       },
       "length": 0.5,
       "radius": 0.075,
-      "material": "blue"
+      "material": "white"
     },
     {
       "name": "l2_shaft",
@@ -78,18 +76,18 @@
       },
       "length": 0.5,
       "radius": 0.015,
-      "material": "blue"
+      "material": "white"
     },
     {
       "name": "j2_motor_housing",
       "type": "cylinder",
       "frame": {
         "parent": "L2_frame",
-        "rotation": [0.7071, 0, 0.7071, 0]
+        "rotation": [0.7071, 0.7071, 0, 0]
       },
       "length": 0.2,
       "radius": 0.1,
-      "material": "blue"
+      "material": "grey"
     }
   ],
   "collisions": null,
@@ -97,32 +95,28 @@
     {
       "name": "i1",
       "type": "mass",
-      "frame": "EE_frame",
+      "frame": "L2_frame",
       "mass": 1.0
     },
     {
       "name": "i2",
-      "type": "inertia",
+      "type": "mass",
       "frame": "EE_frame",
-      "inertia": [1.0, 1.0, 1.0, 0.0, 0.0, 0.0]
-    }
-  ],
-  "storages": [
-    {
-      "name": "s1",
-      "type": "linear_spring",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "stiffness": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+      "mass": 1.0
     }
   ],
   "dissipations": [
     {
       "name": "d1",
-      "type": "linear_damper",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "damping_coefficient": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+      "type": "jointspace_damper",
+      "joint": "J1",
+      "damping_coefficient": 0.01
+    },
+    {
+      "name": "d2",
+      "type": "jointspace_damper",
+      "joint": "J2",
+      "damping_coefficient": 0.01
     }
   ]
 }
