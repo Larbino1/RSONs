@@ -106,23 +106,5 @@
       "frame": "EE_frame",
       "inertia": [1.0, 1.0, 1.0, 0.0, 0.0, 0.0]
     }
-  ],
-  "storages": [
-    {
-      "name": "s1",
-      "type": "linear_spring",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "stiffness": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
-    }
-  ],
-  "dissipations": [
-    {
-      "name": "d1",
-      "type": "linear_damper",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "damping_coefficient": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
-    }
   ]
 }

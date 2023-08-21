@@ -1,8 +1,5 @@
 {
   "name": "pendulum",
-  "blue": {
-    "color": [0, 0, 0.2, 1]
-  },
   "frames": [
     "root_frame",
     "L1_frame",
@@ -33,9 +30,7 @@
         "origin": [0, 0, -0.1]
       },
       "size": [0.2, 0.2, 0.2],
-      "material": {
-        "color": [0, 0, 0.2, 1]
-      }
+      "material": [0, 0, 0.2, 1]
     },
     {
       "name": "l1_cyclinder",
@@ -46,9 +41,7 @@
       },
       "length": 1,
       "radius": 0.075,
-      "material": {
-        "color": [0, 0, 0.2, 1]
-      }
+      "material": [0, 0, 0.2, 1]
     }
   ],
   "collisions": null,

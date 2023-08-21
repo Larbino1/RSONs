@@ -96,24 +96,17 @@
   "inertances": [
     {
       "name": "i1",
-      "type": "mass",
-      "frame": "L2_frame",
-      "mass": 1.0
+      "type": "linear_inerter",
+      "parent": "root_frame",
+      "child": "L2_frame",
+      "inertance": 1.0
     },
     {
       "name": "i2",
-      "type": "mass",
-      "frame": "EE_frame",
-      "mass": 1.0
-    }
-  ],
-  "storages": [
-    {
-      "name": "s1",
-      "type": "linear_spring",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "stiffness": [[100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0]]
+      "type": "linear_inerter",
+      "parent": "root_frame",
+      "child": "EE_frame",
+      "inertance": 1.0
     }
   ]
 }
