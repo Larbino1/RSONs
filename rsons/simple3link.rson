@@ -2,11 +2,13 @@
   "name": "robot2L",
   "frames": [
     "root_frame",
-    "J1_vis_frame",
     "L1_frame",
-    "J2_vis_frame",
     "L2_frame",
-    "EE_frame"
+    "L3_frame",
+    "EE_frame",
+    "J1_vis_frame",
+    "J2_vis_frame",
+    "J3_vis_frame"
   ],
   "joints": [
     {
@@ -25,9 +27,17 @@
       "axis": [0, 1, 0]
     },
     {
+      "name": "J3",
+      "type": "revolute",
+      "parent": "L2_frame",
+      "child": "L3_frame",
+      "origin": [0, 0, 1],
+      "axis": [0, 1, 0]
+    },
+    {
       "name": "ee_joint",
       "type": "rigid",
-      "parent": "L2_frame",
+      "parent": "L3_frame",
       "child": "EE_frame",
       "origin": [0, 0, 1]
     },
@@ -43,6 +53,13 @@
       "type": "rigid",
       "parent": "L2_frame",
       "child": "J2_vis_frame",
+      "rotation": [0.7071, 0.7071, 0, 0]
+    },
+    {
+      "name": "J3_vis_joint",
+      "type": "rigid",
+      "parent": "L3_frame",
+      "child": "J3_vis_frame",
       "rotation": [0.7071, 0.7071, 0, 0]
     }
   ],
@@ -60,7 +77,7 @@
         "origin": [0, 0, -0.1]
       },
       "size": [0.18, 0.18, 0.18],
-      "material": "grey"
+      "material": "black"
     },
     {
       "name": "l1_cyclinder",
@@ -74,10 +91,21 @@
       "material": "white"
     },
     {
-      "name": "l2_cylinder",
+      "name": "l2_cyclinder",
       "type": "cylinder",
       "frame": {
         "parent": "L2_frame",
+        "origin": [0, 0, 0.5]
+      },
+      "length": 1,
+      "radius": 0.075,
+      "material": "white"
+    },
+    {
+      "name": "l3_cylinder",
+      "type": "cylinder",
+      "frame": {
+        "parent": "L3_frame",
         "origin": [0, 0, 0.25]
       },
       "length": 0.5,
@@ -85,10 +113,10 @@
       "material": "white"
     },
     {
-      "name": "l2_shaft",
+      "name": "l3_shaft",
       "type": "cylinder",
       "frame": {
-        "parent": "L2_frame",
+        "parent": "L3_frame",
         "origin": [0, 0, 0.75]
       },
       "length": 0.5,
@@ -104,14 +132,6 @@
       "material": "grey"
     },
     {
-      "name": "j1_motor_housing_outer",
-      "type": "cylinder",
-      "frame": "J1_vis_frame",
-      "length": 0.19,
-      "radius": 0.11,
-      "material": "black"
-    },
-    {
       "name": "j2_motor_housing",
       "type": "cylinder",
       "frame": "J2_vis_frame",
@@ -120,9 +140,33 @@
       "material": "grey"
     },
     {
+      "name": "j3_motor_housing",
+      "type": "cylinder",
+      "frame": "J3_vis_frame",
+      "length": 0.2,
+      "radius": 0.1,
+      "material": "grey"
+    },
+    {
+      "name": "j1_motor_housing_outer",
+      "type": "cylinder",
+      "frame": "J1_vis_frame",
+      "length": 0.19,
+      "radius": 0.11,
+      "material": "black"
+    },
+    {
       "name": "j2_motor_housing_outer",
       "type": "cylinder",
       "frame": "J2_vis_frame",
+      "length": 0.19,
+      "radius": 0.11,
+      "material": "black"
+    },
+    {
+      "name": "j3_motor_housing_outer",
+      "type": "cylinder",
+      "frame": "J3_vis_frame",
       "length": 0.19,
       "radius": 0.11,
       "material": "black"
@@ -138,6 +182,12 @@
     },
     {
       "name": "i2",
+      "type": "mass",
+      "frame": "L3_frame",
+      "mass": 1.0
+    },
+    {
+      "name": "i3",
       "type": "mass",
       "frame": "EE_frame",
       "mass": 1.0

@@ -21,27 +21,43 @@
       "origin": [0, 0, 1]
     }
   ],
+  "materials": {
+    "white": [0.9, 0.9, 0.9, 1.0],
+    "grey": [0.8, 0.8, 0.8, 1.0],
+    "black": [0.0, 0.0, 0.0, 1.0]
+  },
+
   "visuals": [
     {
-      "name": "base_box",
-      "type": "box",
+      "name": "base_cyl",
+      "type": "cylinder",
       "frame": {
         "parent": "root_frame",
-        "origin": [0, 0, -0.1]
+        "rotation": [0.7071, 0.7071, 0, 0]
       },
-      "size": [0.2, 0.2, 0.2],
-      "material": [0, 0, 0.2, 1]
+      "length": 0.2,
+      "radius": 0.1,
+      "material": "black"
     },
     {
-      "name": "l1_cyclinder",
-      "type": "cylinder",
+      "name": "l1",
+      "type": "box",
       "frame": {
         "parent": "L1_frame",
         "origin": [0, 0, 0.5]
       },
-      "length": 1,
-      "radius": 0.075,
-      "material": [0, 0, 0.2, 1]
+      "size": [0.1, 0.1, 1.0],
+      "material": "white"
+    },
+    {
+      "name": "l1",
+      "type": "box",
+      "frame": {
+        "parent": "L1_frame",
+        "origin": [0, 0, 0.5]
+      },
+      "size": [0.12, 0.08, 1.02],
+      "material": "black"
     }
   ],
   "collisions": null,
@@ -53,14 +69,6 @@
       "mass": 1.0
     }
   ],
-  "storages": [
-    {
-      "name": "s1",
-      "type": "linear_spring",
-      "parent": "EE_frame",
-      "child": "root_frame",
-      "stiffness": [[100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0]]
-    }
-  ],
+  "storages": null,
   "dissipations": null
 }
