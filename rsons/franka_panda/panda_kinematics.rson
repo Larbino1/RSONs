@@ -165,11 +165,7 @@
       "length": 0.335,
       "material": "panda_white"
     }
-  ],
-  "collisions": null,
-  "inertances": null,
-  "storages": null,
-  "dissipations": null
+  ]
 }
 
 

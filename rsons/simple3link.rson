@@ -172,26 +172,24 @@
       "material": "black"
     }
   ],
-  "collisions": null,
-  "inertances": [
+  "components": [
     {
       "name": "i1",
-      "type": "mass",
+      "type": "point_mass",
       "frame": "L2_frame",
       "mass": 1.0
     },
     {
       "name": "i2",
-      "type": "mass",
+      "type": "point_mass",
       "frame": "L3_frame",
       "mass": 1.0
     },
     {
       "name": "i3",
-      "type": "mass",
+      "type": "point_mass",
       "frame": "EE_frame",
       "mass": 1.0
     }
-  ],
-  "dissipations": []
+  ]
 }

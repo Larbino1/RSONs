@@ -92,22 +92,19 @@
       "material": "blue"
     }
   ],
-  "collisions": null,
-  "inertances": [
+  "components": [
     {
       "name": "i1",
-      "type": "mass",
+      "type": "point_mass",
       "frame": "L2_frame",
       "mass": 1.0
     },
     {
       "name": "i2",
-      "type": "mass",
+      "type": "point_mass",
       "frame": "EE_frame",
       "mass": 1.0
-    }
-  ],
-  "storages": [
+    },
     {
       "name": "s1",
       "type": "linear_spring",

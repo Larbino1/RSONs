@@ -92,8 +92,7 @@
       "material": "blue"
     }
   ],
-  "collisions": null,
-  "inertances": [
+  "components": [
     {
       "name": "i1",
       "type": "linear_inerter",

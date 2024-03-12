@@ -26,7 +26,6 @@
     "grey": [0.8, 0.8, 0.8, 1.0],
     "black": [0.0, 0.0, 0.0, 1.0]
   },
-
   "visuals": [
     {
       "name": "base_cyl",
@@ -60,15 +59,12 @@
       "material": "black"
     }
   ],
-  "collisions": null,
-  "inertances": [
+  "components": [
     {
-      "name": "i1",
-      "type": "mass",
+      "name": "m1",
+      "type": "point_mass",
       "frame": "EE_frame",
       "mass": 1.0
     }
-  ],
-  "storages": null,
-  "dissipations": null
+  ]
 }
