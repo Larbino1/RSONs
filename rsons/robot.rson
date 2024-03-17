@@ -89,24 +89,53 @@
       "material": "blue"
     }
   ],
+  "coordinates": [
+    {
+      "name": "L1_com",
+      "type": "frame_point",
+      "frame": "L1_frame",
+      "point": [0, 0, 0.5] 
+    },
+    {
+      "name": "L2_com",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 0.5] 
+    },
+    {
+      "name": "ref",
+      "type": "const_coord",
+      "val": [0.5, 0, 0.5]
+    },
+    {
+      "name": "EE_pos",
+      "type": "frame_origin",
+      "frame": "EE_frame"
+    },
+    {
+      "name": "spring_extension",
+      "type": "coord_difference",
+      "parent": "EE_pos",
+      "child": "ref"
+    }
+  ],
   "components": [
     {
       "name": "i1",
       "type": "point_mass",
-      "frame": "L2_frame",
+      "coord": "L1_com",
       "mass": 1.0
     },
     {
       "name": "i2",
       "type": "point_mass",
-      "frame": "EE_frame",
+      "coord": "L2_com",
       "mass": 1.0
     },
     {
       "name": "s1",
       "type": "linear_spring",
-      "parent": "EE_frame",
-      "child": "root_frame",
+      "coord": "spring_extension",
       "stiffness": [[100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0]]
     }
   ]

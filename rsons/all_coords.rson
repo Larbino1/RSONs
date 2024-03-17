@@ -1,14 +1,12 @@
 {
-  "name": "simple3link",
+  "name": "all_coords_robot",
   "frames": [
     "root_frame",
-    "L1_frame",
-    "L2_frame",
-    "L3_frame",
-    "EE_frame",
     "J1_vis_frame",
+    "L1_frame",
     "J2_vis_frame",
-    "J3_vis_frame"
+    "L2_frame",
+    "EE_frame"
   ],
   "joints": [
     {
@@ -27,17 +25,9 @@
       "axis": [0, 1, 0]
     },
     {
-      "name": "J3",
-      "type": "revolute",
-      "parent": "L2_frame",
-      "child": "L3_frame",
-      "origin": [0, 0, 1],
-      "axis": [0, 1, 0]
-    },
-    {
       "name": "ee_joint",
       "type": "rigid",
-      "parent": "L3_frame",
+      "parent": "L2_frame",
       "child": "EE_frame",
       "origin": [0, 0, 1]
     },
@@ -53,13 +43,6 @@
       "type": "rigid",
       "parent": "L2_frame",
       "child": "J2_vis_frame",
-      "rotation": [0.7071, 0.7071, 0, 0]
-    },
-    {
-      "name": "J3_vis_joint",
-      "type": "rigid",
-      "parent": "L3_frame",
-      "child": "J3_vis_frame",
       "rotation": [0.7071, 0.7071, 0, 0]
     }
   ],
@@ -77,7 +60,7 @@
         "origin": [0, 0, -0.1]
       },
       "size": [0.18, 0.18, 0.18],
-      "material": "black"
+      "material": "grey"
     },
     {
       "name": "l1_cyclinder",
@@ -91,21 +74,10 @@
       "material": "white"
     },
     {
-      "name": "l2_cyclinder",
+      "name": "l2_cylinder",
       "type": "cylinder",
       "frame": {
         "parent": "L2_frame",
-        "origin": [0, 0, 0.5]
-      },
-      "length": 1,
-      "radius": 0.075,
-      "material": "white"
-    },
-    {
-      "name": "l3_cylinder",
-      "type": "cylinder",
-      "frame": {
-        "parent": "L3_frame",
         "origin": [0, 0, 0.25]
       },
       "length": 0.5,
@@ -113,10 +85,10 @@
       "material": "white"
     },
     {
-      "name": "l3_shaft",
+      "name": "l2_shaft",
       "type": "cylinder",
       "frame": {
-        "parent": "L3_frame",
+        "parent": "L2_frame",
         "origin": [0, 0, 0.75]
       },
       "length": 0.5,
@@ -132,22 +104,6 @@
       "material": "grey"
     },
     {
-      "name": "j2_motor_housing",
-      "type": "cylinder",
-      "frame": "J2_vis_frame",
-      "length": 0.2,
-      "radius": 0.1,
-      "material": "grey"
-    },
-    {
-      "name": "j3_motor_housing",
-      "type": "cylinder",
-      "frame": "J3_vis_frame",
-      "length": 0.2,
-      "radius": 0.1,
-      "material": "grey"
-    },
-    {
       "name": "j1_motor_housing_outer",
       "type": "cylinder",
       "frame": "J1_vis_frame",
@@ -156,51 +112,103 @@
       "material": "black"
     },
     {
+      "name": "j2_motor_housing",
+      "type": "cylinder",
+      "frame": "J2_vis_frame",
+      "length": 0.2,
+      "radius": 0.1,
+      "material": "grey"
+    },
+    {
       "name": "j2_motor_housing_outer",
       "type": "cylinder",
       "frame": "J2_vis_frame",
       "length": 0.19,
       "radius": 0.11,
       "material": "black"
+    }
+  ],
+  "coordinates": [
+    {
+      "name": "L1_com",
+      "type": "frame_point",
+      "frame": "L1_frame",
+      "point": [0, 0, 0.5]
     },
     {
-      "name": "j3_motor_housing_outer",
-      "type": "cylinder",
-      "frame": "J3_vis_frame",
-      "length": 0.19,
-      "radius": 0.11,
-      "material": "black"
+      "name": "L2_com",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "L2_origin",
+      "type": "frame_origin",
+      "frame": "L2_frame"
+    },
+    {
+      "name": "EE",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 1.0]
+    },
+    {
+      "name": "L2_angvel",
+      "type": "frame_angular_velocity",
+      "frame": "L2_frame"
+    },
+    {
+      "name": "L2_attitude",
+      "type": "quaternion_attitude",
+      "frame": "L2_frame"
+    },
+    {
+      "name": "ref",
+      "type": "const_coord",
+      "val": [1.1, 0.0, 1.1]
+    },
+    {
+      "name": "err",
+      "type": "coord_difference",
+      "parent": "EE",
+      "child": "ref",
+      "size": 3
+    },
+    {
+      "name": "coord_stack",
+      "type": "coord_stack",
+      "c1": "L1_com",
+      "c2": "L2_com" 
+    },
+    {
+      "name": "err_in_l2_frame",
+      "type": "rotated_coord",
+      "frame": "L2_frame",
+      "world_frame_coord": "err"
+    },
+    {
+      "name": "jointspace",
+      "type": "jointspace",
+      "ndof": 2
+    },
+    {
+      "name": "J2",
+      "type": "joint_subspace",
+      "joint": "J2",
+      "ndof": 1
     }
   ],
   "components": [
     {
       "name": "i1",
       "type": "point_mass",
-      "coord": {
-        "name": "i1c",
-        "type": "frame_origin",
-        "frame": "L2_frame"
-      },
+      "coord": "L1_com",
       "mass": 1.0
     },
     {
       "name": "i2",
       "type": "point_mass",
-      "coord": {
-        "name": "i2c",
-        "type": "frame_origin",
-        "frame": "L3_frame"
-      },
-      "mass": 1.0
-    },
-    {
-      "name": "i3",
-      "type": "point_mass",
-      "coord": {
-        "name": "i3c",
-        "type": "frame_origin",
-        "frame": "EE_frame"
-      },
+      "coord": "L2_com",
       "mass": 1.0
     }
   ]
