@@ -1,5 +1,5 @@
 {
-  "name": "robot2L",
+  "name": "inerter_robot",
   "frames": [
     "root_frame",
     "L1_frame",
@@ -89,19 +89,46 @@
       "material": "blue"
     }
   ],
+  "coordinates": [
+    {
+      "name": "root",
+      "type": "frame_origin",
+      "frame": "root_frame"
+    },
+    {
+      "name": "L1_point",
+      "type": "frame_point",
+      "frame": "L1_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "L2_point",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 0.5]
+    }
+  ],
   "components": [
     {
       "name": "i1",
       "type": "linear_inerter",
-      "parent": "root_frame",
-      "child": "L2_frame",
+      "coord": {
+        "name": "i1_coord",
+        "type": "coord_difference",
+        "parent": "L1_point",
+        "child": "root"
+      },
       "inertance": 1.0
     },
     {
       "name": "i2",
       "type": "linear_inerter",
-      "parent": "root_frame",
-      "child": "EE_frame",
+      "coord": {
+        "name": "i2_coord",
+        "type": "coord_difference",
+        "parent": "L2_point",
+        "child": "root"
+      },
       "inertance": 1.0
     }
   ]

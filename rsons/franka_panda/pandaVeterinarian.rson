@@ -91,8 +91,8 @@
     {
       "name": "guide_joint",
       "type": "rigid",
-      "origin": [0.042, 0, 0.097],
-      "rotation": [1.570796, 3.14159, 1.570796],
+      "origin": [0.055, -0.042, 0.042],
+      "rotation": [1.570796, -1.570796, 0],
       "parent": "robot_EE_frame",
       "child": "drill_guide_visual_frame"
     },

@@ -59,11 +59,18 @@
       "material": "black"
     }
   ],
+  "coordinates": [
+    {
+      "name": "EE_coord",
+      "type": "frame_origin",
+      "frame": "EE_frame"
+    }
+  ],
   "components": [
     {
       "name": "m1",
       "type": "point_mass",
-      "frame": "EE_frame",
+      "coord": "EE_coord",
       "mass": 1.0
     }
   ]

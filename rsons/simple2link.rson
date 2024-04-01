@@ -1,5 +1,5 @@
 {
-  "name": "robot2L",
+  "name": "simple2link",
   "frames": [
     "root_frame",
     "J1_vis_frame",

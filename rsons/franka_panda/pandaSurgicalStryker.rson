@@ -18,8 +18,8 @@
     "i7_frame",
     "i8_frame",
     "robot_EE_frame",
-	"instrument_frame",
-	"instrument_EE_frame"
+    "instrument_frame",
+    "instrument_EE_frame"
   ],
   "joints": [
     {
@@ -89,19 +89,20 @@
       "parent": "L7_frame",
       "child": "robot_EE_frame"
     },
-	{
-	  "name": "instrument_joint",
-	  "type": "rigid",
-	  "origin": [0.1875, 0, 0.042],
+    {
+      "name": "instrument_joint",
+      "type": "rigid",
+      "origin": [0.1875, 0, 0.042],
       "rotation": [0, 1.570796, 0],
       "parent": "robot_EE_frame",
       "child": "instrument_frame"
-	},
-	{
-	  "name": "instrument_EE_joint",
-	  "type": "rigid",
-	  "origin": [0, 0, 0.1875],
-      "parent": "instrument_frame",
+    },
+    {
+      "name": "instrument_EE_joint",
+      "type": "rigid",
+      "origin": [0.36978, -0.005308, 0.049936],
+      "rotation": [0, 1.570796, 0],
+      "parent": "robot_EE_frame",
       "child": "instrument_EE_frame"
 	},
     {
