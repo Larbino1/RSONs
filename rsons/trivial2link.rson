@@ -1,0 +1,76 @@
+{
+  "name": "robot2L",
+  "frames": [
+    "root_frame",
+    "L1_frame",
+    "L2_frame"
+  ],
+  "joints": [
+    {
+      "name": "J1",
+      "type": "revolute",
+      "parent": "root_frame",
+      "child": "L1_frame",
+      "axis": [0, 1, 0]
+    },
+    {
+      "name": "J2",
+      "type": "revolute",
+      "parent": "L1_frame",
+      "child": "L2_frame",
+      "origin": [0, 0, 1],
+      "axis": [0, 1, 0]
+    }
+  ],
+  "coordinates": [
+    {
+      "name": "L1_com",
+      "type": "frame_point",
+      "frame": "L1_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "L2_com",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "end_effector_pos",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 1]
+    },
+    {
+      "name": "ref",
+      "type": "const_coord",
+      "val": [1.25, 0, 0.75]
+    },
+    {
+      "name": "spring_extension",
+      "type": "coord_difference",
+      "parent": "end_effector_pos",
+      "child": "ref"
+    }
+  ],
+  "components": [
+    {
+      "name": "L1_mass",
+      "type": "point_mass",
+      "mass": 1.0,
+      "coord": "L1_com"
+    },
+    {
+      "name": "L2_mass",
+      "type": "point_mass",
+      "mass": 1.0,
+      "coord": "L2_com"
+    },
+    {
+      "name": "EE_spring",
+      "type": "linear_spring",
+      "stiffness": 100.0,
+      "coord": "spring_extension"
+    }
+  ]
+}
