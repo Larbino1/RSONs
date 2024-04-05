@@ -133,13 +133,21 @@
     {
       "name": "i1",
       "type": "point_mass",
-      "frame": "L2_frame",
+      "coord": {
+        "name": "L1_COM",
+        "type": "frame_origin",
+        "frame": "L2_frame"
+      },
       "mass": 1.0
     },
     {
       "name": "i2",
       "type": "point_mass",
-      "frame": "EE_frame",
+      "coord": {
+        "name": "L2_COM",
+        "type": "frame_origin",
+        "frame": "EE_frame"
+      },
       "mass": 1.0
     }
   ]
