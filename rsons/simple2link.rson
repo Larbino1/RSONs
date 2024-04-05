@@ -1,5 +1,6 @@
 {
   "name": "simple2link",
+  "type": "mechanism",
   "frames": [
     "root_frame",
     "J1_vis_frame",

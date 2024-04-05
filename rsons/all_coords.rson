@@ -1,5 +1,6 @@
 {
   "name": "all_coords_robot",
+  "type": "mechanism",
   "frames": [
     "root_frame",
     "J1_vis_frame",
