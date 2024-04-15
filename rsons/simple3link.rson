@@ -1,5 +1,6 @@
 {
   "name": "simple3link",
+  "type": "mechanism",
   "frames": [
     "root_frame",
     "L1_frame",

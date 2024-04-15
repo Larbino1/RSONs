@@ -1,5 +1,6 @@
 {
   "name": "robot2L",
+  "type": "mechanism",
   "frames": [
     "root_frame",
     "L1_frame",
