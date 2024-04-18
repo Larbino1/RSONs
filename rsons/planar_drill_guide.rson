@@ -239,8 +239,14 @@
     {
       "name": "tip_error_world",
       "type": "coord_difference",
-      "parent": "drill_robot.drill_tip",
-      "child": "virtual_drill_guide.drill_tip"
+      "parent": ".robot.drill_tip",
+      "child": ".virtual_mechanism.drill_tip"
+    },
+    {
+      "name": "tip_error_link_frame",
+      "type": "rotated_coord",
+      "world_frame_coord": "tip_error_world",
+      "frame": ".robot.EE_frame"
     }
   ],
   "components": [
