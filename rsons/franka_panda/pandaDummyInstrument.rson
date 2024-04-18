@@ -79,62 +79,6 @@
       "origin": [0, 0, 0.107],
       "parent": "L7_frame",
       "child": "robot_EE_frame"
-    },
-    {
-      "name": "i1_joint",
-      "type": "rigid",
-      "origin": [0.003875, 0.002081, -0.04762],
-      "parent": "L1_frame",
-      "child": "i1_frame"
-    },
-    {
-      "name": "i2_joint",
-      "type": "rigid",
-      "origin": [-0.003141, -0.02872,  0.003495],
-      "parent": "L2_frame",
-      "child": "i2_frame"
-    },
-    {
-      "name": "i3_joint",
-      "type": "rigid",
-      "origin": [2.7518e-02, 3.9252e-02, -6.6502e-02],
-      "parent": "L3_frame",
-      "child": "i3_frame"
-    },
-    {
-      "name": "i4_joint",
-      "type": "rigid",
-      "origin": [-5.317e-02, 1.04419e-01, 2.7454e-02],
-      "parent": "L4_frame",
-      "child": "i4_frame"
-    },
-    {
-      "name": "i5_joint",
-      "type": "rigid",
-      "origin": [-1.1953e-02, 4.1065e-02, -3.8437e-02],
-      "parent": "L5_frame",
-      "child": "i5_frame"
-    },
-    {
-      "name": "i6_joint",
-      "type": "rigid",
-      "origin": [6.0149e-02, -1.4117e-02, -1.0517e-02],
-      "parent": "L6_frame",
-      "child": "i6_frame"
-    },
-    {
-      "name": "i7_joint",
-      "type": "rigid",
-      "origin": [1.0517e-02, -4.252e-03, 6.1597e-02],
-      "parent": "L7_frame",
-      "child": "i7_frame"
-    },
-    {
-      "name": "i8_joint",
-      "type": "rigid",
-      "origin": [0.1095, 0, 0.042],
-      "parent": "robot_EE_frame",
-      "child": "i8_frame"
     }
   ],
   "materials": {
