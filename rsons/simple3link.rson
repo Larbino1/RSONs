@@ -173,36 +173,80 @@
       "material": "black"
     }
   ],
+  "coordinates": [
+    {
+      "name": "L1_com",
+      "type": "frame_point",
+      "frame": "L1_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "L2_com",
+      "type": "frame_point",
+      "frame": "L2_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "L3_com",
+      "type": "frame_point",
+      "frame": "L3_frame",
+      "point": [0, 0, 0.5]
+    },
+    {
+      "name": "J1",
+      "type": "joint_subspace",
+      "joint": "J1",
+      "ndof": 1
+    },
+    {
+      "name": "J2",
+      "type": "joint_subspace",
+      "joint": "J2",
+      "ndof": 1
+    },
+    {
+      "name": "J3",
+      "type": "joint_subspace",
+      "joint": "J3",
+      "ndof": 1
+    }
+  ],
   "components": [
     {
       "name": "i1",
       "type": "point_mass",
-      "coord": {
-        "name": "i1c",
-        "type": "frame_origin",
-        "frame": "L2_frame"
-      },
+      "coord": "L1_com",
       "mass": 1.0
     },
     {
       "name": "i2",
       "type": "point_mass",
-      "coord": {
-        "name": "i2c",
-        "type": "frame_origin",
-        "frame": "L3_frame"
-      },
+      "coord": "L2_com",
       "mass": 1.0
     },
     {
       "name": "i3",
       "type": "point_mass",
-      "coord": {
-        "name": "i3c",
-        "type": "frame_origin",
-        "frame": "EE_frame"
-      },
+      "coord": "L3_com",
       "mass": 1.0
+    },
+    {
+      "name": "d1",
+      "type": "linear_damper",
+      "coord": "J1",
+      "damping_coefficient": 1.0
+    },
+    {
+      "name": "d2",
+      "type": "linear_damper",
+      "coord": "J2",
+      "damping_coefficient": 0.5
+    },
+    {
+      "name": "d3",
+      "type": "linear_damper",
+      "coord": "J3",
+      "damping_coefficient": 0.1
     }
   ]
 }
