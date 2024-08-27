@@ -155,7 +155,7 @@
       "name": "InstrumentClamp",
       "type": "mesh",
       "frame": {
-        "parent": "EE_frame",
+        "parent": "robot_EE_frame",
         "origin": [0.042, 0, 0.042],
         "rotation": [0, 0, -1.570796]
       },

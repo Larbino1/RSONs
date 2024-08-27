@@ -50,7 +50,7 @@
       "material": "white"
     },
     {
-      "name": "l1",
+      "name": "l1_border",
       "type": "box",
       "frame": {
         "parent": "L1_frame",
