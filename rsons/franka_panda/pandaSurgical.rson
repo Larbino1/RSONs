@@ -108,7 +108,7 @@
       "name": "L0_mesh",
       "type": "mesh",
       "frame": "root_frame",
-      "filename": "./meshes/visual/link0.obj",
+      "filename": "./meshes/visual/link0.dae",
       "material": "panda_white"
     },
 
@@ -116,49 +116,49 @@
       "name": "L1_mesh",
       "type": "mesh",
       "frame": "L1_frame",
-      "filename": "./meshes/visual/link1.obj",
+      "filename": "./meshes/visual/link1.dae",
       "material": "panda_white"
     },
     {
       "name": "L2_mesh",
       "type": "mesh",
       "frame": "L2_frame",
-      "filename": "./meshes/visual/link2.obj",
+      "filename": "./meshes/visual/link2.dae",
       "material": "panda_white"
     },
     {
       "name": "L3_mesh",
       "type": "mesh",
       "frame": "L3_frame",
-      "filename": "./meshes/visual/link3.obj",
+      "filename": "./meshes/visual/link3.dae",
       "material": "panda_white"
     },
     {
       "name": "L4_mesh",
       "type": "mesh",
       "frame": "L4_frame",
-      "filename": "./meshes/visual/link4.obj",
+      "filename": "./meshes/visual/link4.dae",
       "material": "panda_white"
     },
     {
       "name": "L5_mesh",
       "type": "mesh",
       "frame": "L5_frame",
-      "filename": "./meshes/visual/link5.obj",
+      "filename": "./meshes/visual/link5.dae",
       "material": "panda_white"
     },
     {
       "name": "L6_mesh",
       "type": "mesh",
       "frame": "L6_frame",
-      "filename": "./meshes/visual/link6.obj",
+      "filename": "./meshes/visual/link6.dae",
       "material": "panda_white"
     },
     {
       "name": "L7_mesh",
       "type": "mesh",
       "frame": "L7_frame",
-      "filename": "./meshes/visual/link7.obj",
+      "filename": "./meshes/visual/link7.dae",
       "material": "panda_white"
     },    
     {
