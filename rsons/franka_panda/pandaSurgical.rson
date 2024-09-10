@@ -83,25 +83,24 @@
       "child": "robot_EE_frame"
     },
     {
-      "name": "instrument_joint",
-      "type": "rigid",
-      "origin": [0.2095, 0, 0.042],
-      "rotation": [0, 1.570796, 0],
-      "parent": "robot_EE_frame",
-      "child": "instrument_frame"
-    },
-    {
       "name": "instrument_EE_joint",
       "type": "rigid",
-      "origin": [0, 0, 0.2095],
+      "origin": [0.377, 0, 0.042],
       "rotation": [0, 1.570796, 0],
-      "parent": "instrument_frame",
+      "parent": "robot_EE_frame",
       "child": "instrument_EE_frame"
+    },
+    {
+      "name": "instrument_joint",
+      "type": "rigid",
+      "origin": [0.0, 0.0, -0.1675],
+      "parent": "instrument_EE_frame",
+      "child": "instrument_frame"
     }
   ],
   "materials": {
     "panda_white": [1.0, 1.0, 1.0, 1.0],
-    "PLA_black": [0.0, 0.0, 0.0, 1.0]
+    "PLA_black": [0.2, 0.2, 0.2, 1.0]
   },
   "visuals": [
       {
@@ -179,6 +178,20 @@
       "radius": 0.003,
       "length": 0.335,
       "material": "panda_white"
+    }
+  ],
+  "coordinates": [
+    {
+      "name": "instrument_EE",
+      "type": "frame_point",
+      "frame": "instrument_EE_frame",
+      "point": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "instrument_base",
+      "type": "frame_point",
+      "frame": "instrument_EE_frame",
+      "point": [0.0, 0.0, -0.335]
     }
   ],
   "components": [
