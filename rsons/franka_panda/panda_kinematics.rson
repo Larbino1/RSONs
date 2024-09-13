@@ -142,29 +142,6 @@
       "frame": "L7_frame",
       "filename": "./meshes/visual/link7.stl",
       "material": "panda_white"
-    },    
-    {
-      "name": "InstrumentClamp",
-      "type": "mesh",
-      "frame": {
-        "parent": "EE_frame",
-        "origin": [0.042, 0, 0.042],
-        "rotation": [0, 0, -1.570796]
-      },
-      "filename": "./meshes/visual/myInstrumentClampUnitsMeters.stl",
-      "material": "PLA_black"
-    },
-    {
-      "name": "instrument",
-      "type": "cylinder",
-      "frame": {
-        "parent": "EE_frame",
-        "origin": [0.2095, 0, 0.042],
-        "rotation": [0, 1.570796, 0]
-      },
-      "radius": 0.003,
-      "length": 0.335,
-      "material": "panda_white"
     }
   ]
 }
