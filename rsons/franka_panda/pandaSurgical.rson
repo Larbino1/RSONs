@@ -192,7 +192,14 @@
       "type": "frame_point",
       "frame": "instrument_EE_frame",
       "point": [0.0, 0.0, -0.335]
-    }
+    },
+    {"name": "J1", "type": "joint_subspace", "joint": "J1"},
+    {"name": "J2", "type": "joint_subspace", "joint": "J2"},
+    {"name": "J3", "type": "joint_subspace", "joint": "J3"},
+    {"name": "J4", "type": "joint_subspace", "joint": "J4"},
+    {"name": "J5", "type": "joint_subspace", "joint": "J5"},
+    {"name": "J6", "type": "joint_subspace", "joint": "J6"},
+    {"name": "J7", "type": "joint_subspace", "joint": "J7"}
   ],
   "components": [
     {

@@ -1,0 +1,116 @@
+{
+    "name": "virtual_instrument",
+    "type": "mechanism",
+    "frames": [
+        "root_frame",
+        "VI_L1_frame",
+        "VI_L2_frame",
+        "VirtualInstrumentFrame",
+        "rcm_frame"
+    ],
+    "joints": [
+        {
+            "name": "rcm_joint",
+            "type": "rigid",
+            "origin": [0.48, 0.15, 0.35],
+            "parent": "root_frame",
+            "child": "rcm_frame"
+        },
+        {
+            "name": "J1",
+            "type": "revolute",
+            "axis": [0, 1, 0],
+            "parent": "rcm_frame",
+            "child": "VI_L1_frame"
+        },
+        {
+            "name": "J2",
+            "type": "revolute",
+            "axis": [1, 0, 0],
+            "parent": "VI_L1_frame",
+            "child": "VI_L2_frame"
+        },
+        {
+            "name": "J3",
+            "type": "prismatic",
+            "axis": [0, 0, 1],
+            "parent": "VI_L2_frame",
+            "child": "VirtualInstrumentFrame"
+        }
+    ],
+    "coordinates": [
+        {
+            "name": "root_frame_origin",
+            "type": "frame_origin",
+            "frame": "root_frame"
+        },
+        {
+            "name": "VI_frame_origin",
+            "type": "frame_origin",
+            "frame": "VirtualInstrumentFrame"
+        },
+        {
+            "name": "inerter_extension",
+            "type": "coord_difference",
+            "parent": "VI_frame_origin",
+            "child": "root_frame_origin"
+        },
+        {
+            "name": "ref",
+            "type": "reference_coord",
+            "val": [0, 0, 0]
+        },
+        {
+            "name": "instrument_ee",
+            "type": "frame_point",
+            "frame": "VirtualInstrumentFrame",
+            "point": [0.0, 0.0, 0.1675]
+        },
+        {
+            "name": "instrument_base",
+            "type": "frame_point",
+            "frame": "VirtualInstrumentFrame",
+            "point": [0.0, 0.0, -0.1675]
+        },
+        {
+            "name": "rcm",
+            "type": "frame_point",
+            "frame": "rcm_frame",
+            "point": [0.0, 0.0, 0.0]
+        }
+    ],
+    "components": [
+        {
+            "name": "VI_inertia",
+            "type": "inertia",
+            "inertia": {
+                "xx": 5e-2,
+                "yy": 5e-2,
+                "zz": 5e-2
+            },
+            "frame": "VirtualInstrumentFrame"
+        },
+        {
+            "name": "VI_inerter",
+            "type": "linear_inerter",
+            "inertance": 1.0,
+            "coord": "inerter_extension"
+        }
+    ],
+    "visuals": [
+        {
+            "name": "VI_box",
+            "type": "box",
+            "size": [0.01, 0.01, 0.335],
+            "frame": "VirtualInstrumentFrame",
+            "material": [1.0, 0.0, 0.0, 1.0]
+        },
+        {
+            "name": "VI_sphere",
+            "type": "sphere",
+            "radius": 0.01,
+            "frame": "VirtualInstrumentFrame",
+            "material": [1.0, 0.0, 1.0, 1.0]
+        }
+    ]
+}
