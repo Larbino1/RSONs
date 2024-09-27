@@ -11,8 +11,8 @@
     "L6_frame",
     "L7_frame",
     "robot_EE_frame",
-	"instrument_frame",
-	"instrument_EE_frame"
+	  "instrument_frame",
+	  "instrument_EE_frame"
   ],
   "joints": [
     {
