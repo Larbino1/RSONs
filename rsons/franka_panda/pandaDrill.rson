@@ -10,9 +10,7 @@
     "L5_frame",
     "L6_frame",
     "L7_frame",
-    "robot_EE_frame",
-	  "instrument_frame",
-	  "instrument_EE_frame"
+    "robot_EE_frame"
   ],
   "joints": [
     {
@@ -76,38 +74,25 @@
       "axis": [0, 0, 1]
     },
     {
-      "name": "robot_EE_joint",
+      "name": "EE_joint",
       "type": "rigid",
       "origin": [0, 0, 0.107],
       "parent": "L7_frame",
       "child": "robot_EE_frame"
-    },
-    {
-      "name": "instrument_EE_joint",
-      "type": "rigid",
-      "origin": [0.377, 0, 0.042],
-      "rotation": [0, 1.570796, 0],
-      "parent": "robot_EE_frame",
-      "child": "instrument_EE_frame"
-    },
-    {
-      "name": "instrument_joint",
-      "type": "rigid",
-      "origin": [0.0, 0.0, -0.1675],
-      "parent": "instrument_EE_frame",
-      "child": "instrument_frame"
     }
   ],
   "materials": {
     "panda_white": [1.0, 1.0, 1.0, 1.0],
-    "PLA_black": [0.2, 0.2, 0.2, 1.0]
+    "PLA_black": [0.0, 0.0, 0.0, 1.0],
+    "PLA_grey": [0.5, 0.5, 0.5, 1.0],
+    "drill_red": [0.8, 0.1, 0.1, 1.0]
   },
   "visuals": [
       {
       "name": "L0_mesh",
       "type": "mesh",
       "frame": "root_frame",
-      "filename": "./meshes/visual/link0.dae",
+      "filename": "./meshes/visual/link0.obj",
       "material": "panda_white"
     },
 
@@ -115,91 +100,97 @@
       "name": "L1_mesh",
       "type": "mesh",
       "frame": "L1_frame",
-      "filename": "./meshes/visual/link1.dae",
+      "filename": "./meshes/visual/link1.obj",
       "material": "panda_white"
     },
     {
       "name": "L2_mesh",
       "type": "mesh",
       "frame": "L2_frame",
-      "filename": "./meshes/visual/link2.dae",
+      "filename": "./meshes/visual/link2.obj",
       "material": "panda_white"
     },
     {
       "name": "L3_mesh",
       "type": "mesh",
       "frame": "L3_frame",
-      "filename": "./meshes/visual/link3.dae",
+      "filename": "./meshes/visual/link3.obj",
       "material": "panda_white"
     },
     {
       "name": "L4_mesh",
       "type": "mesh",
       "frame": "L4_frame",
-      "filename": "./meshes/visual/link4.dae",
+      "filename": "./meshes/visual/link4.obj",
       "material": "panda_white"
     },
     {
       "name": "L5_mesh",
       "type": "mesh",
       "frame": "L5_frame",
-      "filename": "./meshes/visual/link5.dae",
+      "filename": "./meshes/visual/link5.obj",
       "material": "panda_white"
     },
     {
       "name": "L6_mesh",
       "type": "mesh",
       "frame": "L6_frame",
-      "filename": "./meshes/visual/link6.dae",
+      "filename": "./meshes/visual/link6.obj",
       "material": "panda_white"
     },
     {
       "name": "L7_mesh",
       "type": "mesh",
       "frame": "L7_frame",
-      "filename": "./meshes/visual/link7.dae",
+      "filename": "./meshes/visual/link7.obj",
       "material": "panda_white"
-    },    
+    },
     {
-      "name": "InstrumentClamp",
-      "type": "mesh",
+      "name": "drill_mount",
+      "type": "cylinder",
       "frame": {
         "parent": "robot_EE_frame",
-        "origin": [0.042, 0, 0.042],
-        "rotation": [0, 0, -1.570796]
+        "origin": [0.0, 0, 0.02]
       },
-      "filename": "./meshes/visual/myInstrumentClampUnitsMeters.stl",
+      "radius": 0.033,
+      "length": 0.04,
+      "material": "PLA_grey"
+    },
+    {
+      "name": "drill_head",
+      "type": "cylinder",
+      "frame": {
+        "parent": "robot_EE_frame",
+        "origin": [0.053, 0, 0.091],
+        "rotation": [0, 1.570796, 0]
+      },
+      "radius": 0.03,
+      "length": 0.22,
+      "material": "drill_red"
+    },
+    {
+      "name": "drill_handle",
+      "type": "cylinder",
+      "frame": {
+        "parent": "robot_EE_frame",
+        "origin": [0.0, 0.09, 0.091],
+        "rotation": [1.570796, 0.0, 0.2]
+      },
+      "radius": 0.02,
+      "length": 0.13,
       "material": "PLA_black"
     },
     {
-      "name": "instrument",
-      "type": "cylinder",
-      "frame": "instrument_frame",
-      "radius": 0.003,
-      "length": 0.335,
-      "material": "panda_white"
+      "name": "drill_battery",
+      "type": "box",
+      "frame": {
+        "parent": "robot_EE_frame",
+        "origin": [-0.01, 0.17, 0.091],
+        "rotation": [0, 0, 0.05]
+      },
+      "size": [0.12, 0.04, 0.07],
+      "material": "drill_red"
     }
-  ],
-  "coordinates": [
-    {
-      "name": "instrument_EE",
-      "type": "frame_point",
-      "frame": "instrument_EE_frame",
-      "point": [0.0, 0.0, 0.0]
-    },
-    {
-      "name": "instrument_base",
-      "type": "frame_point",
-      "frame": "instrument_EE_frame",
-      "point": [0.0, 0.0, -0.335]
-    },
-    {"name": "J1", "type": "joint_subspace", "joint": "J1"},
-    {"name": "J2", "type": "joint_subspace", "joint": "J2"},
-    {"name": "J3", "type": "joint_subspace", "joint": "J3"},
-    {"name": "J4", "type": "joint_subspace", "joint": "J4"},
-    {"name": "J5", "type": "joint_subspace", "joint": "J5"},
-    {"name": "J6", "type": "joint_subspace", "joint": "J6"},
-    {"name": "J7", "type": "joint_subspace", "joint": "J7"}
   ],
   "components": [
     {
