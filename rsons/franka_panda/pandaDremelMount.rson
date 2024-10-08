@@ -1,5 +1,5 @@
 {
-  "name": "panda",
+  "name": "panda_dremel_mount",
   "type": "mechanism",
   "frames": [
     "root_frame",
@@ -162,6 +162,25 @@
       "filename": "./meshes/visual/dremelclamp.obj",
       "material": "PLA_black"
     }
+  ],
+  "coordinates": [
+      {
+        "name": "test_const_coord",
+        "type": "const_coord",
+        "val": [0.1, 0.2, 0.3]
+      },
+      {
+        "name": "test_unrotated_coord",
+        "type": "unrotated_coord",
+        "frame": "robot_EE_frame",
+        "link_frame_coord": "test_const_coord"
+      },
+      {
+        "name": "test_rotated_coord",
+        "type": "rotated_coord",
+        "frame": "robot_EE_frame",
+        "world_frame_coord": "test_const_coord"
+      }
   ],
   "components": [
     {

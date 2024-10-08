@@ -247,7 +247,19 @@
       "type": "rotated_coord",
       "world_frame_coord": "tip_error_world",
       "frame": ".robot.EE_frame"
+    },
+    {
+      "name": "test_const_coord",
+      "type": "const_coord",
+      "val": [0.1, 0.2, 0.3]
+    },
+    {
+      "name": "test_unrotated_coord",
+      "type": "unrotated_coord",
+      "link_frame_coord": "test_const_coord",
+      "frame": ".robot.EE_frame"
     }
+
   ],
   "components": [
     {
