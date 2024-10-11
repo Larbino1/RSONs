@@ -20,7 +20,7 @@
       "name": "ref_error_world",
       "type": "coord_difference",
       "parent": ".robot.instrument_EE",
-      "child": ".virtual_mechanism.ref"
+      "child": ".virtual_mechanism.ref_position"
     },
     {
       "name": "ref_error",
@@ -82,19 +82,19 @@
       "name": "ref_damper",
       "type": "linear_damper",
       "coord": "ref_error_world",
-      "damping_coefficient": 50.0
+      "damping_coefficient": 10.0
     },
     {
       "name": "vi_base_damper",
       "type": "linear_damper",
       "coord": "vi_base_error_world",
-      "damping_coefficient": 50.0
+      "damping_coefficient": 10.0
     },
     {
       "name": "vi_ee_damper",
       "type": "linear_damper",
       "coord": "vi_ee_error_world",
-      "damping_coefficient": 50.0
+      "damping_coefficient": 10.0
     },
     {
       "name": "J1_damper",

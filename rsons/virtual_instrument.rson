@@ -56,21 +56,32 @@
             "child": "root_frame_origin"
         },
         {
-            "name": "ref",
+            "name": "ref_offset",
             "type": "reference_coord",
-            "val": [0, 0, 0]
+            "val": [0.0, 0.0, 0.0]
+        },
+        {
+            "name": "ref_signal",
+            "type": "reference_coord",
+            "val": [0.58, 0.15, 0.25]
+        },
+        {
+            "name": "ref_position",
+            "type": "coord_sum",
+            "c1": "ref_offset",
+            "c2": "ref_signal"
         },
         {
             "name": "instrument_ee",
             "type": "frame_point",
             "frame": "VirtualInstrumentFrame",
-            "point": [0.0, 0.0, 0.1675]
+            "point": [0.0, 0.0, -0.1675]
         },
         {
             "name": "instrument_base",
             "type": "frame_point",
             "frame": "VirtualInstrumentFrame",
-            "point": [0.0, 0.0, -0.1675]
+            "point": [0.0, 0.0, 0.1675]
         },
         {
             "name": "rcm",
@@ -109,7 +120,7 @@
             "name": "VI_sphere",
             "type": "sphere",
             "radius": 0.01,
-            "frame": "VirtualInstrumentFrame",
+            "frame": "rcm_frame",
             "material": [1.0, 0.0, 1.0, 1.0]
         }
     ]
