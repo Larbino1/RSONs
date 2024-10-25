@@ -1,0 +1,154 @@
+{
+  "name": "panda_surgical_system",
+  "type": "virtual_mechanism_system",
+  "robot": "./pandaSurgicalStryker.rson",
+  "virtual_mechanism": {
+      "name": "virtual_burr",
+      "type": "mechanism",
+      "frames": [
+          "root_frame",
+          "L1_frame",
+          "L2_frame",
+          "L3_frame"
+      ],
+      "joints": [
+        {
+          "name": "J1",
+          "type": "prismatic",
+          "parent": "root_frame",
+          "child": "L1_frame",
+          "axis": [1, 0, 0]
+        },
+        {
+          "name": "J2",
+          "type": "prismatic",
+          "parent": "L1_frame",
+          "child": "L2_frame",
+          "axis": [0, 1, 0]
+        },
+        {
+          "name": "J3",
+          "type": "prismatic",
+          "parent": "L2_frame",
+          "child": "L3_frame",
+          "axis": [0, 0, 1]
+        }
+      ],
+      "coordinates": [
+        {
+          "name": "ref_position",
+          "type": "reference_coord",
+          "val": [0.4, 0.0, 0.2]
+        },
+        {
+          "name": "root_frame_origin",
+          "type": "frame_origin",
+          "frame": "root_frame"
+        },
+        {
+          "name": "L3_frame_origin",
+          "type": "frame_origin",
+          "frame": "L3_frame"
+        },
+        {
+          "name": "inerter_extension",
+          "type": "coord_difference",
+          "parent": "root_frame_origin",
+          "child": "L3_frame_origin"
+        },
+        {
+          "name": "virtual_burr_point_A",
+          "type": "frame_point",
+          "frame": "L3_frame",
+          "point": [0, 0, 0]
+        },
+        {
+          "name": "virtual_burr_point_B",
+          "type": "frame_point",
+          "frame": "L3_frame",
+          "point": [-0.09, 0, 0.12]
+        }
+      ],
+      "components": [
+        {
+          "name": "virtual_burr_inerter",
+          "type": "linear_inerter",
+          "coord": "inerter_extension",
+          "inertance": 1.0
+        }
+      ]
+  },
+  "coordinates": [
+    {
+      "name": "ref_error",
+      "type": "coord_difference",
+      "parent": ".robot.instrument_tip",
+      "child": ".virtual_mechanism.ref_position"
+    },
+    {
+      "name": "robot_point_A",
+      "type": "frame_point",
+      "frame": ".robot.instrument_EE_frame",
+      "point": [0, 0, 0]
+    },
+    {
+      "name": "robot_point_B",
+      "type": "frame_point",
+      "frame": ".robot.instrument_EE_frame",
+      "point": [0, 0, -0.15]
+    },
+    {
+      "name": "point_A_err",
+      "type": "coord_difference",
+      "parent": "robot_point_A",
+      "child": ".virtual_mechanism.virtual_burr_point_A"
+    },
+    {
+      "name": "point_B_err",
+      "type": "coord_difference",
+      "parent": "robot_point_B",
+      "child": ".virtual_mechanism.virtual_burr_point_B"
+    }
+  ],
+  "components": [
+    {
+      "name": "ref_spring",
+      "type": "tanh_spring",
+      "coord": "ref_error",
+      "stiffness": 2000.0,
+      "max_force": 15.0
+    },
+    {
+      "name": "ref_damper",
+      "type": "linear_damper",
+      "coord": "ref_error",
+      "damping_coefficient": 15.0
+    },
+    {
+      "name": "burr_spring_A",
+      "type": "tanh_spring",
+      "coord": "point_A_err",
+      "stiffness": 500.0,
+      "max_force": 10.0
+    },
+    {
+      "name": "burr_spring_B",
+      "type": "tanh_spring",
+      "coord": "point_B_err",
+      "stiffness": 500.0,
+      "max_force": 10.0
+    },
+    {
+      "name": "burr_damper_A",
+      "type": "linear_damper",
+      "coord": "point_A_err",
+      "damping_coefficient": 2.0
+    },
+    {
+      "name": "burr_damper_B",
+      "type": "linear_damper",
+      "coord": "point_B_err",
+      "damping_coefficient": 2.0
+    }
+  ]
+}
