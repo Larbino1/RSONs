@@ -192,6 +192,27 @@
       "material": "drill_red"
     }
   ],
+  "coordinates": [
+    {"name": "J1", "type": "joint_subspace", "joint": "J1"},
+    {"name": "J2", "type": "joint_subspace", "joint": "J2"},
+    {"name": "J3", "type": "joint_subspace", "joint": "J3"},
+    {"name": "J4", "type": "joint_subspace", "joint": "J4"},
+    {"name": "J5", "type": "joint_subspace", "joint": "J5"},
+    {"name": "J6", "type": "joint_subspace", "joint": "J6"},
+    {"name": "J7", "type": "joint_subspace", "joint": "J7"},
+    {
+      "name": "drill_tip",
+      "type": "frame_point",
+      "frame": "robot_EE_frame",
+      "point": [0.23786, -0.002626, 0.09931255]
+    },
+    {
+      "name": "drill_base",
+      "type": "frame_point",
+      "frame": "robot_EE_frame",
+      "point": [-1.7609, 0.0118666, 0.030672]
+    }
+  ],
   "components": [
     {
       "name": "i1",
