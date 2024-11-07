@@ -1,7 +1,7 @@
 {
   "name": "panda_surgical_system",
   "type": "virtual_mechanism_system",
-  "robot": "./pandaSurgical.rson",
+  "robot": "./pandaSurgicalV2.rson",
   "virtual_mechanism": "../virtual_instrument.rson",
   "coordinates": [
     {
