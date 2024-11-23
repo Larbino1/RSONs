@@ -1,128 +1,173 @@
 {
-  "name": "scara",
-  "type": "mechanism",
-  "frames": [
-    "root_frame",
-    "L1_frame",
-    "L2_frame",
-	"i1_frame",
-	"i2_frame",
-    "EE_frame"
-  ],
-  "joints": [
-    {
-      "name": "J1",
-      "type": "revolute",
-      "parent": "root_frame",
-      "child": "L1_frame",
-      "axis": [0, 0, 1]
+    "rson_version": "0.1.0",
+    "type": "mechanism",
+    "name": "scara",
+    "frames": [
+        "root_frame",
+        "L1_frame",
+        "L2_frame",
+        "i1_frame",
+        "i2_frame",
+        "EE_frame"
+    ],
+    "joints": {
+        "J1": {
+            "type": "revolute",
+            "parent": "root_frame",
+            "child": "L1_frame",
+            "axis": [
+                0,
+                0,
+                1
+            ]
+        },
+        "J2": {
+            "type": "revolute",
+            "parent": "L1_frame",
+            "child": "L2_frame",
+            "axis": [
+                0,
+                0,
+                1
+            ],
+            "origin": [
+                0.4,
+                0,
+                0.0
+            ]
+        },
+        "i1_joint": {
+            "type": "rigid",
+            "parent": "L1_frame",
+            "child": "i1_frame",
+            "origin": [
+                0.2,
+                0,
+                0
+            ]
+        },
+        "i2_joint": {
+            "type": "rigid",
+            "parent": "L2_frame",
+            "child": "i2_frame",
+            "origin": [
+                0.2,
+                0,
+                0
+            ]
+        },
+        "ee_joint": {
+            "type": "rigid",
+            "parent": "L2_frame",
+            "child": "EE_frame",
+            "origin": [
+                0.4,
+                0,
+                0
+            ]
+        }
     },
-    {
-      "name": "J2",
-      "type": "revolute",
-      "parent": "L1_frame",
-      "child": "L2_frame",
-      "origin": [0.4, 0, 0.0],
-      "axis": [0, 0, 1]
+    "components": {
+        "i1": {
+            "type": "point_mass",
+            "frame": "i1_frame",
+            "mass": 2.0
+        },
+        "i2": {
+            "type": "point_mass",
+            "frame": "i2_frame",
+            "mass": 1.2
+        },
+        "d1": {
+            "type": "jointspace_damper",
+            "joint": "J1",
+            "damping_coefficient": 0.04
+        },
+        "d2": {
+            "type": "jointspace_damper",
+            "joint": "J2",
+            "damping_coefficient": 0.02
+        }
     },
-	  {
-      "name": "i1_joint",
-      "type": "rigid",
-      "parent": "L1_frame",
-      "child": "i1_frame",
-      "origin": [0.2, 0, 0]
+    "materials": {
+        "white": [
+            0.9,
+            0.9,
+            0.9,
+            1.0
+        ],
+        "grey": [
+            0.8,
+            0.8,
+            0.8,
+            1.0
+        ]
     },
-	  {
-      "name": "i2_joint",
-      "type": "rigid",
-      "parent": "L2_frame",
-      "child": "i2_frame",
-      "origin": [0.2, 0, 0]
-    },
-    {
-      "name": "ee_joint",
-      "type": "rigid",
-      "parent": "L2_frame",
-      "child": "EE_frame",
-      "origin": [0.4, 0, 0]
+    "visuals": {
+        "base_box": {
+            "type": "box",
+            "frame": {
+                "parent": "root_frame",
+                "origin": [
+                    0,
+                    0,
+                    -0.1
+                ]
+            },
+            "material": "grey",
+            "size": [
+                0.2,
+                0.2,
+                0.2
+            ]
+        },
+        "l1_cyclinder": {
+            "type": "cylinder",
+            "frame": "L1_frame",
+            "material": "white",
+            "length": 0.2,
+            "radius": 0.075
+        },
+        "l2_cylinder": {
+            "type": "cylinder",
+            "frame": "L2_frame",
+            "material": "white",
+            "length": 0.2,
+            "radius": 0.075
+        },
+        "l1_box": {
+            "type": "box",
+            "frame": {
+                "parent": "L1_frame",
+                "origin": [
+                    0.2,
+                    0,
+                    0
+                ]
+            },
+            "material": "white",
+            "size": [
+                0.4,
+                0.1,
+                0.1
+            ]
+        },
+        "l2_box": {
+            "type": "box",
+            "frame": {
+                "parent": "L2_frame",
+                "origin": [
+                    0.2,
+                    0,
+                    0
+                ]
+            },
+            "material": "white",
+            "size": [
+                0.4,
+                0.1,
+                0.1
+            ]
+        }
     }
-  ],
-  "materials": {
-    "white": [0.9, 0.9, 0.9, 1.0],
-    "grey": [0.8, 0.8, 0.8, 1.0]
-  },
-  "visuals": [
-    {
-      "name": "base_box",
-      "type": "box",
-      "frame": {
-        "parent": "root_frame",
-        "origin": [0, 0, -0.1]
-      },
-      "size": [0.2, 0.2, 0.2],
-      "material": "grey"
-    },
-    {
-      "name": "l1_cyclinder",
-      "type": "cylinder",
-      "frame": "L1_frame",
-      "length": 0.2,
-      "radius": 0.075,
-      "material": "white"
-    },
-    {
-      "name": "l2_cylinder",
-      "type": "cylinder",
-      "frame": "L2_frame",
-      "length": 0.2,
-      "radius": 0.075,
-      "material": "white"
-    },
-    {
-      "name": "l1_box",
-      "type": "box",
-      "frame": {
-        "parent": "L1_frame",
-        "origin": [0.2, 0, 0]
-      },
-      "size": [0.4, 0.1, 0.1],
-      "material": "white"
-    },
-    {
-      "name": "l2_box",
-      "type": "box",
-      "frame": {
-        "parent": "L2_frame",
-        "origin": [0.2, 0, 0]
-      },
-      "size": [0.4, 0.1, 0.1],
-      "material": "white"
-    }
-  ],
-  "components": [
-    {
-      "name": "i1",
-      "type": "point_mass",
-      "frame": "i1_frame",
-      "mass": 2.0
-    },
-    {
-      "name": "i2",
-      "type": "point_mass",
-      "frame": "i2_frame",
-      "mass": 1.2
-    },
-    {
-      "name": "d1",
-      "type": "jointspace_damper",
-      "joint": "J1",
-      "damping_coefficient": 0.04
-    },
-    {
-      "name": "d2",
-      "type": "jointspace_damper",
-      "joint": "J2",
-      "damping_coefficient": 0.02
-    }
-  ]
 }
