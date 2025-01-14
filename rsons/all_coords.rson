@@ -120,8 +120,11 @@
         "err": {
             "type": "coord_difference",
             "parent": "EE",
-            "child": "ref",
-            "size": 3
+            "child": "ref"
+        },
+        "coord_norm": {
+            "type": "coord_norm",
+            "coord": "err"
         },
         "coord_stack": {
             "type": "coord_stack",
@@ -133,14 +136,9 @@
             "frame": "L2_frame",
             "world_frame_coord": "err"
         },
-        "jointspace": {
-            "type": "jointspace",
-            "ndof": 2
-        },
         "J2": {
             "type": "joint_subspace",
-            "joint": "J2",
-            "ndof": 1
+            "joint": "J2"
         }
     },
     "components": {

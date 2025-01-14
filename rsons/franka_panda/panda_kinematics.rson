@@ -1,7 +1,8 @@
 {
     "rson_version": "0.1.0",
     "type": "mechanism",
-    "name": "panda",
+    "name": "panda_kinematics",
+    "description": "A model of the kinematics of the Franka Emika robot arm, but not mass/inertia.",
     "frames": [
         "root_frame",
         "L1_frame",

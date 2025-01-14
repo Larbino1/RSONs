@@ -127,18 +127,15 @@
         },
         "J1": {
             "type": "joint_subspace",
-            "joint": "J1",
-            "ndof": 1
+            "joint": "J1"
         },
         "J2": {
             "type": "joint_subspace",
-            "joint": "J2",
-            "ndof": 1
+            "joint": "J2"
         },
         "J3": {
             "type": "joint_subspace",
-            "joint": "J3",
-            "ndof": 1
+            "joint": "J3"
         }
     },
     "components": {

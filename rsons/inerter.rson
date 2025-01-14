@@ -2,6 +2,7 @@
     "rson_version": "0.1.0",
     "type": "mechanism",
     "name": "inerter_robot",
+    "description": "A simple 2R robot with linear inerters at the centre of mass of each link, instead of point masses.",
     "frames": [
         "root_frame",
         "L1_frame",
@@ -72,22 +73,12 @@
     "components": {
         "i1": {
             "type": "linear_inerter",
-            "coord": {
-                "type": "coord_difference",
-                "name": "i1_coord",
-                "parent": "L1_point",
-                "child": "root"
-            },
+            "coord": "L1_point",
             "inertance": 1.0
         },
         "i2": {
             "type": "linear_inerter",
-            "coord": {
-                "type": "coord_difference",
-                "name": "i2_coord",
-                "parent": "L2_point",
-                "child": "root"
-            },
+            "coord": "L2_point",
             "inertance": 1.0
         }
     },

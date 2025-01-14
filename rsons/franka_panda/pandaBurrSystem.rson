@@ -1,7 +1,7 @@
 {
     "rson_version": "0.1.0",
     "type": "virtual_mechanism_system",
-    "name": "panda_surgical_system",
+    "name": "panda_burr_system",
     "robot": "./pandaSurgicalStryker.rson",
     "virtual_mechanism": {
         "type": "mechanism",

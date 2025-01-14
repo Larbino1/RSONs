@@ -69,23 +69,35 @@
             ]
         }
     },
+    "coordinates": {
+        "L1_COM": {
+            "type": "frame_point",
+            "frame": "L1_frame",
+            "point": [
+                0,
+                0,
+                0.5
+            ]
+        },
+        "L2_COM": {
+            "type": "frame_point",
+            "frame": "L2_frame",
+            "point": [
+                0,
+                0,
+                0.5
+            ]
+        }
+    },
     "components": {
         "i1": {
             "type": "point_mass",
-            "coord": {
-                "type": "frame_origin",
-                "name": "L1_COM",
-                "frame": "L2_frame"
-            },
+            "coord": "L1_COM",
             "mass": 1.0
         },
         "i2": {
             "type": "point_mass",
-            "coord": {
-                "type": "frame_origin",
-                "name": "L2_COM",
-                "frame": "EE_frame"
-            },
+            "coord": "L2_COM",
             "mass": 1.0
         }
     },

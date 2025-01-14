@@ -6,8 +6,6 @@
         "root_frame",
         "L1_frame",
         "L2_frame",
-        "i1_frame",
-        "i2_frame",
         "EE_frame"
     ],
     "joints": {
@@ -36,26 +34,6 @@
                 0.0
             ]
         },
-        "i1_joint": {
-            "type": "rigid",
-            "parent": "L1_frame",
-            "child": "i1_frame",
-            "origin": [
-                0.2,
-                0,
-                0
-            ]
-        },
-        "i2_joint": {
-            "type": "rigid",
-            "parent": "L2_frame",
-            "child": "i2_frame",
-            "origin": [
-                0.2,
-                0,
-                0
-            ]
-        },
         "ee_joint": {
             "type": "rigid",
             "parent": "L2_frame",
@@ -67,25 +45,53 @@
             ]
         }
     },
+    "coordinates": {
+        "i1_com": {
+            "type": "frame_point",
+            "frame": "L1_frame",
+            "point": [
+                0.2,
+                0,
+                0
+            ]
+        },
+        "i2_com": {
+            "type": "frame_point",
+            "frame": "L2_frame",
+            "point": [
+                0.2,
+                0,
+                0
+            ]
+        },
+        "J1": {
+            "type": "joint_subspace",
+            "joint": "J1"
+        },
+        "J2": {
+            "type": "joint_subspace",
+            "joint": "J2"
+        }
+    },
     "components": {
         "i1": {
             "type": "point_mass",
-            "frame": "i1_frame",
+            "coord": "i1_com",
             "mass": 2.0
         },
         "i2": {
             "type": "point_mass",
-            "frame": "i2_frame",
+            "coord": "i2_com",
             "mass": 1.2
         },
         "d1": {
-            "type": "jointspace_damper",
-            "joint": "J1",
+            "type": "linear_damper",
+            "coord": "J1",
             "damping_coefficient": 0.04
         },
         "d2": {
-            "type": "jointspace_damper",
-            "joint": "J2",
+            "type": "linear_damper",
+            "coord": "J2",
             "damping_coefficient": 0.02
         }
     },
